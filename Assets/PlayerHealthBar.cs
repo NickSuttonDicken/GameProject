@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class PlayerHealthBar : MonoBehaviour
 {
-    public Image fillImage;
+    //public Image fillImage;
     private Slider slider;
     // Start is called before the first frame update
-    void Start()   
+    void Start()
     {
         slider = GetComponent<Slider>();
     }
@@ -16,26 +16,29 @@ public class PlayerHealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if( slider.value <= slider.minValue )
+        /*
+        if (slider.value <= slider.minValue)
         {
             fillImage.enabled = false;
         }
 
-        if( slider.value > slider.minValue && !(fillImage.enabled) )
+        if (slider.value > slider.minValue && !(fillImage.enabled))
         {
             fillImage.enabled = true;
         }
         //  float fillValue = playerHealth.currenthealth / PlayerHealthBar.maxhealth  *need  to reference player script*
-        
-
-        if( fillvalue <= slider.maxValue / 3 )
+        */
+        /*
+        if (fillvalue <= slider.maxValue / 3)
         {
             fillImage.color = Color.red;
         }
 
-        else if( fillValue > slider.maxValue / 3 )
+        else if (fillValue > slider.maxValue / 3)
         {
             fillImage.color = Color.blue;
         }
         // slider.value = fillValue;
+        */
     }
+}
