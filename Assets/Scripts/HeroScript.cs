@@ -30,9 +30,17 @@ public class HeroScript : MonoBehaviour
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out ray, 500))
             {
                 mesh.destination = ray.point;
-                anime.SetInteger("HeroState", 2);
+                anime.SetInteger("HeroState", 1);
             }
         }
+
+        Debug.Log(mesh.hasPath);
+
+        if (mesh.hasPath == false && mesh.remainingDistance == 0)
+        {
+            anime.SetInteger("HeroState", 0);
+        }
+
         // healthBar.SetHealthBar(10);
     }
 }
