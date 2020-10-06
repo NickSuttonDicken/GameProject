@@ -11,7 +11,6 @@ public class PlayerHealthBar : MonoBehaviour
     void Start()
     {
         GetSlider();
-        slider.minValue = 0;
         Debug.Log("bar");
     }
 
@@ -35,16 +34,16 @@ public class PlayerHealthBar : MonoBehaviour
         slider.maxValue = max;
     }
 
-    public void SetHealthBar(int health)
+    public void SetHealthBar(int updateHealth)
     {
-        slider.value = health;
-        if (slider.value > slider.maxValue / 3)
+        slider.value -= updateHealth;
+        /*if (slider.value > slider.maxValue / 3)
         {
             slider.fillRect.GetComponent<Image>().color = Color.blue;
         }
         else
         {
             slider.fillRect.GetComponent<Image>().color = Color.red;
-        }
+        }*/
     }
 }

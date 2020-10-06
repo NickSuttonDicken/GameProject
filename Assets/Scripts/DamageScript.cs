@@ -21,9 +21,9 @@ public class DamageScript : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.tag);
-        if (other.tag == "Player")
+        if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("asdsa");
+            Debug.Log("Damage Logged");
             bar.SetHealthBar(10);
         }
     }

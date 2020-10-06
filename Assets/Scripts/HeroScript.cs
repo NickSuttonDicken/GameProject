@@ -16,9 +16,7 @@ public class HeroScript : MonoBehaviour
         anime = GetComponent<Animator>(); 
         mesh = GetComponent<NavMeshAgent>();
         Debug.Log("hero");
-        healthBar.SetMaxHealthBar(maxHealth);
-        //healthBar.SetHealthBar(maxHealth);
-        healthBar.SetHealthBar(maxHealth);
+
     }
 
     // Update is called once per frame
