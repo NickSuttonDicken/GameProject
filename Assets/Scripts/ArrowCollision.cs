@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerCollision : MonoBehaviour
+public class ArrowCollision : MonoBehaviour
 {
-    public TowerController Tower;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,19 +18,14 @@ public class TowerCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag ==  "Terrain")
         {
-            Tower.AddEnemy(other.gameObject);
+            DestroySelf();
         }
-        
     }
 
-    private void OnTriggerExit(Collider other)
+    private void DestroySelf()
     {
-        if (other.gameObject.tag == "Enemy")
-        {
-            Tower.RemoveEnemy(other.gameObject);
-        }
-        
+        Destroy(this.gameObject);
     }
 }

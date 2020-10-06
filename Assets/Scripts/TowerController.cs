@@ -6,11 +6,14 @@ public class TowerController : MonoBehaviour
 {
     public GameObject Turret;
     public GameObject Spawn;
-    public GameObject Arrow;
+    public GameObject Ammo;
     public int fireRate;
     public int damage;
+    public float ammoSpeed;
     private List<GameObject> enemyList = new List<GameObject>();
-
+    private Vector3 velocity;
+    private bool canFire = false;
+    private float timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +28,19 @@ public class TowerController : MonoBehaviour
             Vector3 direction = enemyList[0].transform.position - Turret.transform.position;
             Quaternion rotation = Quaternion.LookRotation(direction);
             Turret.transform.rotation = rotation;
+
+            canFire = true;
+
+            timer += Time.deltaTime;
+            if (timer > fireRate)
+            {
+                FireAtEnemy();
+                timer = 0;
+            }
+        }
+        else
+        {
+            canFire = false;
         }
         
     }
@@ -40,4 +56,17 @@ public class TowerController : MonoBehaviour
         Debug.Log("Removed from List");
         enemyList.Remove(other);
     }
+
+    private void FireAtEnemy()
+    {
+        if (canFire == true)
+        {
+            GameObject ammo = Object.Instantiate(Ammo, Spawn.transform.position, Spawn.transform.rotation);
+            velocity = enemyList[0].transform.position - Spawn.transform.position;
+            ammo.GetComponent<Rigidbody>().velocity = velocity * ammoSpeed;
+        }
+        
+    }
+
+
 }
