@@ -11,7 +11,7 @@ public class PlaceTower : MonoBehaviour
     private GameObject towerMagic;
     private GameObject towerCannon;
     public int selection = 1;
-    private bool canPlaceTower;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,16 +21,7 @@ public class PlaceTower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (towerBalista == null)
-        {
-            Debug.Log("True");
-            canPlaceTower = true;
-        }
-        else
-        {
-            Debug.Log("False");
-            canPlaceTower = false;
-        }
+        
     }
 
     private bool CanPlaceTower()
@@ -43,7 +34,7 @@ public class PlaceTower : MonoBehaviour
         if (collision.isTrigger)
         {
             Debug.Log("Confirmed");
-            if (canPlaceTower == true)
+            if (CanPlaceTower())
             {
                 if (selection == 1)
                 {

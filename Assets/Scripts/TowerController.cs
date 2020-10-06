@@ -1,0 +1,43 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TowerController : MonoBehaviour
+{
+    public GameObject Turret;
+    public GameObject Spawn;
+    public GameObject Arrow;
+    public int fireRate;
+    public int damage;
+    private List<GameObject> enemyList = new List<GameObject>();
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (enemyList.Count != 0)
+        {
+            Vector3 direction = enemyList[0].transform.position - Turret.transform.position;
+            Quaternion rotation = Quaternion.LookRotation(direction);
+            Turret.transform.rotation = rotation;
+        }
+        
+    }
+
+    public void AddEnemy(GameObject other)
+    {
+        Debug.Log("Added to List");
+        enemyList.Add(other);
+    }
+    
+    public void RemoveEnemy(GameObject other)
+    {
+        Debug.Log("Removed from List");
+        enemyList.Remove(other);
+    }
+}
