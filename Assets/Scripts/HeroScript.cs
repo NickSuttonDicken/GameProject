@@ -24,23 +24,28 @@ public class HeroScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
             RaycastHit ray;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out ray, 500))
             {
                 mesh.destination = ray.point;
-                anime.SetInteger("HeroState", 1);
+                anime.SetInteger("HeroState", 2);
             }
-        }
-
-        Debug.Log(mesh.hasPath);
+        }*/
 
         if (mesh.hasPath == false && mesh.remainingDistance == 0)
         {
-            anime.SetInteger("HeroState", 0);
+            anime.SetInteger("HeroState", 1);
         }
 
         // healthBar.SetHealthBar(10);
+    }
+
+    public void WalkTo(Vector3 point)
+    {
+
+        mesh.destination = point;
+        anime.SetInteger("HeroState", 2);
     }
 }
