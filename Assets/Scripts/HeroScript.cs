@@ -37,6 +37,12 @@ public class HeroScript : MonoBehaviour
         {
             anime.SetInteger("HeroState", 1);
         }
+
+        if (healthBar.HealthDepleted() == true)
+        {
+            HeroDeath();
+        }
+        
     }
 
     public void WalkTo(Vector3 point)
@@ -48,5 +54,12 @@ public class HeroScript : MonoBehaviour
     public void PassHealth()
     {
         healthBar.SetMaxHealth(maxHealth);
+    }
+
+    public void HeroDeath()
+    {
+        mesh.isStopped = true;
+        anime.SetInteger("HeroState", 10);
+
     }
 }

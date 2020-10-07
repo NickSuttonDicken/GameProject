@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class PlayerHealthBar : MonoBehaviour
 {
-    //public Image fillImage;
     private int maxHealth = 100;
     private int minHealth = 0;
     private int currentHealth;
@@ -56,5 +55,14 @@ public class PlayerHealthBar : MonoBehaviour
     private void UpdateHealthBar()
     {
         slider.value = currentHealth;
+    }
+
+    public bool HealthDepleted()
+    {
+        if (currentHealth == 0)
+        {
+            return true;
+        }
+        else return false;
     }
 }
