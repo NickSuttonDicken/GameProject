@@ -15,6 +15,7 @@ public class HeroScript : MonoBehaviour
     {
         anime = GetComponent<Animator>(); 
         mesh = GetComponent<NavMeshAgent>();
+        PassHealth();
         Debug.Log("hero");
 
     }
@@ -36,14 +37,16 @@ public class HeroScript : MonoBehaviour
         {
             anime.SetInteger("HeroState", 1);
         }
-
-        // healthBar.SetHealthBar(10);
     }
 
     public void WalkTo(Vector3 point)
     {
-
         mesh.destination = point;
         anime.SetInteger("HeroState", 2);
+    }
+
+    public void PassHealth()
+    {
+        healthBar.SetMaxHealth(maxHealth);
     }
 }

@@ -24,7 +24,7 @@ public class DamageScript : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             Debug.Log("Damage Logged");
-            bar.SetHealthBar(10);
+            bar.TakeDamage(10);
         }
     }
 }

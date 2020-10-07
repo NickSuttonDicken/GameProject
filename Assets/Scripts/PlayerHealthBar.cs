@@ -6,11 +6,16 @@ using UnityEngine.UI;
 public class PlayerHealthBar : MonoBehaviour
 {
     //public Image fillImage;
+    private int maxHealth = 100;
+    private int minHealth = 0;
+    private int currentHealth;
     private Slider slider;
     // Start is called before the first frame update
     void Start()
     {
+        currentHealth = maxHealth;
         GetSlider();
+        SetMaxHealthBar();
         Debug.Log("bar");
     }
 
@@ -22,28 +27,34 @@ public class PlayerHealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void SetMaxHealthBar(int max)
+    public void SetMaxHealthBar()
     {
         if (!slider)
         {
             GetSlider();
         }
-        slider.maxValue = max;
+        slider.maxValue = maxHealth;
+        slider.minValue = minHealth;
+        slider.value = currentHealth;
     }
 
-    public void SetHealthBar(int updateHealth)
+    public void SetMaxHealth(int health)
     {
-        slider.value -= updateHealth;
-        /*if (slider.value > slider.maxValue / 3)
-        {
-            slider.fillRect.GetComponent<Image>().color = Color.blue;
-        }
-        else
-        {
-            slider.fillRect.GetComponent<Image>().color = Color.red;
-        }*/
+        maxHealth = health;
+        currentHealth = maxHealth;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        UpdateHealthBar();
+    }
+
+    private void UpdateHealthBar()
+    {
+        slider.value = currentHealth;
     }
 }

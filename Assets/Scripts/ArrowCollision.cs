@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArrowCollision : MonoBehaviour
 {
-    public PlayerHealthBar bar;
+    
     private int arrowDamage = 10;
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class ArrowCollision : MonoBehaviour
         {
             if (other.gameObject.tag == "Enemy")
             {
-                bar.SetHealthBar(arrowDamage);
+                other.gameObject.GetComponent<HeroScript>().healthBar.TakeDamage(arrowDamage);
             }
             DestroySelf();
         }
