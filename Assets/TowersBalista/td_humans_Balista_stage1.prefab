@@ -479,7 +479,7 @@ MonoBehaviour:
   Turret: {fileID: 100000}
   Spawn: {fileID: 5781940970908997528}
   Ammo: {fileID: 100000, guid: a7556b6e029796a4bb0198cf47f584cf, type: 3}
-  fireRate: 20
+  fireRate: 2
   damage: 50
   ammoSpeed: 3
 --- !u!1 &260013566095548378
@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 2706741505000061863}
   - component: {fileID: 2774137238947170375}
   m_Layer: 0
-  m_Name: CollisionRadius
+  m_Name: ColliderRadius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
