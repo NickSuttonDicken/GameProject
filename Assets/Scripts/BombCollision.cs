@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BombCollision : MonoBehaviour
 {
-    private int bombDamage = 20;
+    public int bombDamage = 20;
     private GameObject explosion;
     // Start is called before the first frame update
     void Start()
