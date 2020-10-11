@@ -7,9 +7,7 @@ public class EnemyHealthBar : MonoBehaviour
 {
     public int maxHealth = 100;
     private int minHealth = 0;
-    private int regenValue = 5;
     private int currentHealth;
-    private float timer = 0;
     private Slider slider;
     // Start is called before the first frame update
     void Start()

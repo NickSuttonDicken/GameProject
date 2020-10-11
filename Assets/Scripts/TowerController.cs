@@ -25,24 +25,31 @@ public class TowerController : MonoBehaviour
     {
         if (enemyList.Count != 0)
         {
-            Vector3 direction = enemyList[0].transform.position - Turret.transform.position;
-            Quaternion rotation = Quaternion.LookRotation(direction);
-            Turret.transform.rotation = rotation;
-
-            canFire = true;
-
-            timer += Time.deltaTime;
-            if (timer > fireRate)
+            if (enemyList[0] == null)
             {
-                FireAtEnemy();
-                timer = 0;
+                Debug.Log("Null");
+                EnemyDeath();
+            }
+            else
+            {
+                Vector3 direction = enemyList[0].transform.position - Turret.transform.position;
+                Quaternion rotation = Quaternion.LookRotation(direction);
+                Turret.transform.rotation = rotation;
+
+                canFire = true;
+
+                timer += Time.deltaTime;
+                if (timer > fireRate)
+                {
+                    FireAtEnemy();
+                    timer = 0;
+                }
             }
         }
         else
         {
             canFire = false;
         }
-        
     }
 
     public void AddEnemy(GameObject other)
@@ -66,5 +73,10 @@ public class TowerController : MonoBehaviour
             ammo.GetComponent<Rigidbody>().velocity = velocity * ammoSpeed;
         }
         
+    }
+
+    public void EnemyDeath()
+    {
+        enemyList.RemoveAt(0);
     }
 }

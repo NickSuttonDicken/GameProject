@@ -78,6 +78,7 @@ public class EnemyScript : MonoBehaviour
         mesh.isStopped = true;
         anim.SetInteger("MonsterState", 10);
         Destroy(this.gameObject);
+
     }
 
     public void SetSlowSpeed(float modifier)
