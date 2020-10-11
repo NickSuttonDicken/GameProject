@@ -24,7 +24,7 @@ public class ArrowCollision : MonoBehaviour
         {
             if (other.gameObject.tag == "Enemy")
             {
-                other.gameObject.GetComponent<HeroScript>().healthBar.TakeDamage(arrowDamage);
+                other.gameObject.GetComponent<EnemyScript>().healthBar.TakeDamage(arrowDamage);
             }
             DestroySelf();
         }

@@ -21,7 +21,7 @@ public class MagicTowerCollision : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             Debug.Log("Slowed");
-            other.gameObject.GetComponent<HeroScript>().SetSlowSpeed(Tower.GetSpeedMod());
+            other.gameObject.GetComponent<EnemyScript>().SetSlowSpeed(Tower.GetSpeedMod());
         }
     }
 
@@ -30,7 +30,7 @@ public class MagicTowerCollision : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             Debug.Log("Slow Removed");
-            other.gameObject.GetComponent<HeroScript>().SetNormalSpeed();
+            other.gameObject.GetComponent<EnemyScript>().SetNormalSpeed();
         }
 
     }

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealthBar : MonoBehaviour
+public class EnemyHealthBar : MonoBehaviour
 {
-    private int maxHealth = 100;
+    public int maxHealth = 100;
     private int minHealth = 0;
     private int regenValue = 5;
     private int currentHealth;
@@ -28,15 +28,7 @@ public class PlayerHealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentHealth != maxHealth)
-        {
-            timer += Time.deltaTime;
-            if (timer > 5)
-            {
-                RegenHealth();
-                timer = 0;
-            }
-        }
+
     }
 
     public void SetMaxHealthBar()
@@ -48,12 +40,6 @@ public class PlayerHealthBar : MonoBehaviour
         slider.maxValue = maxHealth;
         slider.minValue = minHealth;
         slider.value = currentHealth;
-    }
-
-    private void RegenHealth()
-    {
-        currentHealth = currentHealth + regenValue;
-        UpdateHealthBar();
     }
 
     public void SetMaxHealth(int health)

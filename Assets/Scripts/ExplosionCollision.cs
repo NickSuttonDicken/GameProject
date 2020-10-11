@@ -29,7 +29,7 @@ public class ExplosionCollision : MonoBehaviour
         {
             if (other.gameObject.tag == "Enemy")
             {
-                other.gameObject.GetComponent<HeroScript>().healthBar.TakeDamage(damage);
+                other.gameObject.GetComponent<EnemyScript>().healthBar.TakeDamage(damage);
             }
         }
     }

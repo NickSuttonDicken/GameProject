@@ -5,6 +5,11 @@ using UnityEngine.AI;
 
 public class EnemyScript : MonoBehaviour
 {
+    public int maxHealth = 50;
+    public EnemyHealthBar healthBar;
+    public float originalSpeed;
+    private float currentSpeed;
+    private float modifiedSpeed;
     public Transform[] points;
     private int destPoint = 0;
     private NavMeshAgent mesh;
@@ -15,6 +20,9 @@ public class EnemyScript : MonoBehaviour
     {
         mesh = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        currentSpeed = originalSpeed;
+        mesh.speed = currentSpeed;
+        PassHealth();
         // Disabling auto-braking allows for continuous movement
         // between points (ie, the agent doesn't slow down as it
         // approaches a destination point).
@@ -54,7 +62,33 @@ public class EnemyScript : MonoBehaviour
         {
             anim.SetInteger("MonsterState", 1);
         }
+        if (healthBar.HealthDepleted() == true)
+        {
+            MonsterDeath();
+        }
+    }
 
+    public void PassHealth()
+    {
+        healthBar.SetMaxHealth(maxHealth);
+    }
 
+    public void MonsterDeath()
+    {
+        mesh.isStopped = true;
+        anim.SetInteger("MonsterState", 10);
+        Destroy(this.gameObject);
+    }
+
+    public void SetSlowSpeed(float modifier)
+    {
+        currentSpeed = currentSpeed * modifier;
+        mesh.speed = currentSpeed;
+    }
+
+    public void SetNormalSpeed()
+    {
+        currentSpeed = originalSpeed;
+        mesh.speed = currentSpeed;
     }
 }
