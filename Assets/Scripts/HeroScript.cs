@@ -7,6 +7,9 @@ public class HeroScript : MonoBehaviour
 {
     public int maxHealth = 100;
     public PlayerHealthBar healthBar;
+    public float originalSpeed;
+    private float currentSpeed;
+    private float modifiedSpeed;
     NavMeshAgent mesh;
     Animator anime;
     
@@ -15,6 +18,8 @@ public class HeroScript : MonoBehaviour
     {
         anime = GetComponent<Animator>(); 
         mesh = GetComponent<NavMeshAgent>();
+        currentSpeed = originalSpeed;
+        mesh.speed = currentSpeed;
         PassHealth();
         Debug.Log("hero");
 
@@ -60,6 +65,18 @@ public class HeroScript : MonoBehaviour
     {
         mesh.isStopped = true;
         anime.SetInteger("HeroState", 10);
-
     }
+
+    public void SetSlowSpeed(float modifier)
+    {
+        currentSpeed = currentSpeed * modifier;
+        mesh.speed = currentSpeed;
+    }
+    
+    public void SetNormalSpeed()
+    {
+        currentSpeed = originalSpeed;
+        mesh.speed = currentSpeed;
+    }
+
 }
