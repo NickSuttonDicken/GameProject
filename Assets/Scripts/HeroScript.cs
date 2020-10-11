@@ -11,12 +11,12 @@ public class HeroScript : MonoBehaviour
     private float currentSpeed;
     private float modifiedSpeed;
     NavMeshAgent mesh;
-    Animator anime;
+    Animator anim;
     
     // Start is called before the first frame update
     void Start()
     {
-        anime = GetComponent<Animator>(); 
+        anim = GetComponent<Animator>(); 
         mesh = GetComponent<NavMeshAgent>();
         currentSpeed = originalSpeed;
         mesh.speed = currentSpeed;
@@ -28,32 +28,21 @@ public class HeroScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit ray;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out ray, 500))
-            {
-                mesh.destination = ray.point;
-                anime.SetInteger("HeroState", 2);
-            }
-        }*/
-
         if (mesh.hasPath == false && mesh.remainingDistance == 0)
         {
-            anime.SetInteger("HeroState", 1);
+            anim.SetInteger("HeroState", 1);
         }
 
         if (healthBar.HealthDepleted() == true)
         {
             HeroDeath();
         }
-        
     }
 
     public void WalkTo(Vector3 point)
     {
         mesh.destination = point;
-        anime.SetInteger("HeroState", 2);
+        anim.SetInteger("HeroState", 2);
     }
 
     public void PassHealth()
@@ -64,7 +53,7 @@ public class HeroScript : MonoBehaviour
     public void HeroDeath()
     {
         mesh.isStopped = true;
-        anime.SetInteger("HeroState", 10);
+        anim.SetInteger("HeroState", 10);
     }
 
     public void SetSlowSpeed(float modifier)
