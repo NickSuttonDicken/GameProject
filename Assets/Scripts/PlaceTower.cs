@@ -29,13 +29,14 @@ public class PlaceTower : MonoBehaviour
         return towerBalista == null;
     }
 
-    public void TowerPlacing(Collider collision, Vector3 point)
+    public void TowerPlacing(Collider collision, Vector3 point, int select)
     {
         if (collision.isTrigger)
         {
             Debug.Log("Confirmed");
             if (CanPlaceTower())
             {
+                selection = select;
                 if (selection == 1)
                 {
                     Debug.Log("TowerBalista");

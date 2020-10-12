@@ -1,10 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class RayCastController : MonoBehaviour
 {
     public HeroScript hero;
+    public UIController UI;
+    private int select;
+    public EventSystem eventSystem;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +26,21 @@ public class RayCastController : MonoBehaviour
             {
                 if (ray.collider.gameObject.tag == "Tower")
                 {
-                    ray.collider.gameObject.GetComponent<PlaceTower>().TowerPlacing(ray.collider, ray.point);
+                    UI.ButtonOn();
+                    if (UI.ButtonClicked() == true)
+                    {
+                        Debug.Log("Tower Spawned");
+                        select = UI.ButtonSelect();
+                        Debug.Log(select);
+                        ray.collider.gameObject.GetComponent<PlaceTower>().TowerPlacing(ray.collider, ray.point, select);
+                        select = 0;
+                    }
+                    
                 }
-                else
+                else if (!eventSystem.IsPointerOverGameObject())
                 {
                     hero.WalkTo(ray.point);
+                    UI.ButtonOff();
                 }
             }
         }
