@@ -8,6 +8,7 @@ TagManager:
   - TowerBase
   - Enemy
   - Terrain
+  - UI
   layers:
   - Default
   - TransparentFX
