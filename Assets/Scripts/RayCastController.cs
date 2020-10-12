@@ -26,7 +26,7 @@ public class RayCastController : MonoBehaviour
             {
                 if (ray.collider.gameObject.tag == "Tower")
                 {
-                    UI.ButtonOn();
+                    
                     if (UI.ButtonClicked() == true)
                     {
                         Debug.Log("Tower Spawned");
@@ -40,7 +40,6 @@ public class RayCastController : MonoBehaviour
                 else if (!eventSystem.IsPointerOverGameObject())
                 {
                     hero.WalkTo(ray.point);
-                    UI.ButtonOff();
                 }
             }
         }

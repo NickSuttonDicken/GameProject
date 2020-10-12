@@ -13,9 +13,7 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        buttons[0].gameObject.SetActive(false);
-        buttons[1].gameObject.SetActive(false);
-        buttons[2].gameObject.SetActive(false);
+        ButtonOn();
         buttons[0].onClick.AddListener(ButtonOneClick);
         buttons[1].onClick.AddListener(ButtonTwoClick);
         buttons[2].onClick.AddListener(ButtonThreeClick);
