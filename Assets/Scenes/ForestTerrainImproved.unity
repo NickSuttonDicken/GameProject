@@ -2656,6 +2656,11 @@ PrefabInstance:
       propertyPath: UI
       value: 
       objectReference: {fileID: 1841072741}
+    - target: {fileID: 9122926487820876403, guid: d02ad867b2b63874c8bb18e0727301e6,
+        type: 3}
+      propertyPath: eventSystem
+      value: 
+      objectReference: {fileID: 1932566569}
     - target: {fileID: 9122926487820876404, guid: d02ad867b2b63874c8bb18e0727301e6,
         type: 3}
       propertyPath: m_LocalPosition.x
