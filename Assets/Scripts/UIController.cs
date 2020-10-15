@@ -10,6 +10,9 @@ public class UIController : MonoBehaviour
     public Button[] buttons;
     private int select;
     private int buttonClick = 0;
+    public Text waveCount;
+    public Text enemyCount;
+    public Text gemCount;
     
     // Start is called before the first frame update
     void Start()
@@ -87,6 +90,18 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void UpdateGem()
+    {
 
+    }
 
+    public void UpdateEnemy()
+    {
+
+    }
+
+    public void UpdateWave()
+    {
+
+    }
 }

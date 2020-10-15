@@ -2569,7 +2569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8455431dec687fb4da314bbd4d9f000b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventSystem: {fileID: 0}
+  eventSystem: {fileID: 1932566569}
   buttons:
   - {fileID: 845230421}
   - {fileID: 1726653629}
