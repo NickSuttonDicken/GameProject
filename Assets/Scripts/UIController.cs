@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class UIController : MonoBehaviour
 {
+    public EventSystem eventSystem;
     public Button[] buttons;
     private int select;
     private int buttonClick = 0;

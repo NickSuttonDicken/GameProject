@@ -1089,6 +1089,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742064474}
   m_CullTransparentMesh: 0
+--- !u!1 &900866369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4154126358890598822, guid: 6be67f5153bc93c4888d1adee69c1a23,
+    type: 3}
+  m_PrefabInstance: {fileID: 4154126357327596117}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1020161063
 GameObject:
   m_ObjectHideFlags: 0
@@ -2268,5 +2274,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 4154126357739799293, guid: 6be67f5153bc93c4888d1adee69c1a23,
+        type: 3}
+      propertyPath: pauseMenuUI
+      value: 
+      objectReference: {fileID: 900866369}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6be67f5153bc93c4888d1adee69c1a23, type: 3}
