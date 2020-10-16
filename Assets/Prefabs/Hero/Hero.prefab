@@ -3225,10 +3225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe6c4a0ac05ad74aaeee8da93a4507f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 150
   healthBar: {fileID: 435046006312042395}
   originalSpeed: 3.5
-  damage: 25
+  damage: 30
   attackRate: 2
   attackRange: 5
   timer: 0
