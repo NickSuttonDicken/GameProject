@@ -3228,7 +3228,7 @@ MonoBehaviour:
   maxHealth: 150
   healthBar: {fileID: 435046006312042395}
   originalSpeed: 3.5
-  damage: 30
+  damage: 50
   attackRate: 2
   attackRange: 5
   timer: 0

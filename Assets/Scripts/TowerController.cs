@@ -27,7 +27,7 @@ public class TowerController : MonoBehaviour
         {
             if (enemyList[0] == null)
             {
-                Debug.Log("Null");
+                //Debug.Log("Null");
                 EnemyDeath();
             }
             else

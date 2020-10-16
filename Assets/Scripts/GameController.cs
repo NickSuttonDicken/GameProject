@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameController : MonoBehaviour
     public List<GameObject> waveOne = new List<GameObject>();
     public List<GameObject> waveTwo = new List<GameObject>();
     public List<GameObject> waveThree = new List<GameObject>();
+    private List<GameObject> enemyList = new List<GameObject>();
     public GameObject hero;
     public HeroScript heroScript;
     public UIController UI;
@@ -31,6 +33,7 @@ public class GameController : MonoBehaviour
         spawnSpots[2] = spawn.transform.GetChild(2).gameObject;
         hero.transform.position = spawnSpots[2].transform.position;
         StartWave();
+        
     }
 
     // Update is called once per frame
@@ -45,6 +48,72 @@ public class GameController : MonoBehaviour
                 StartWave();
                 timer = 0;
             }
+
+        }
+        if (waveCount == 4)
+        {
+            timer = 0;
+            timer += Time.deltaTime;
+            if (timer > waitTime)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+        }
+        
+
+
+
+        if (waveCount == 1)
+        {
+            enemyCount = enemyList.Count;
+            UI.UpdateEnemy(enemyCount);
+            if (waveOne.Count != 0)
+            {
+                for (var i = enemyList.Count -1; i > -1; i--)
+                {
+                    if (enemyList[i] == null)
+                    {
+                        enemyList.RemoveAt(i);
+                        enemyCount = enemyList.Count;
+                        UI.UpdateEnemy(enemyCount);
+                        Debug.Log(enemyList.Count);
+                    }
+                    
+                    
+                }
+            }
+        }
+        if (waveCount == 2)
+        {
+            enemyCount = waveTwo.Count;
+            UI.UpdateEnemy(enemyCount);
+            if (waveTwo.Count != 0)
+            {
+                for (int i = 0; i < 15; i++)
+                {
+                    if (waveTwo[i] == null)
+                    {
+                        waveTwo.RemoveAt(i);
+                    }
+                }
+            }
+        }
+        if (waveCount == 3)
+        {
+            enemyCount = waveThree.Count;
+            UI.UpdateEnemy(enemyCount);
+            waveCount = 4;
+            if (waveThree.Count != 0)
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    if (waveThree[i] == null)
+                    {
+                        waveThree.RemoveAt(i);
+                    }
+                }
+            }
+
         }
 
     }
@@ -65,6 +134,7 @@ public class GameController : MonoBehaviour
                 }
                 Debug.Log("Spawned Mob");
                 GameObject monster = Instantiate(mob, spawnSpots[0].transform.position, Quaternion.identity);
+                enemyList.Add(mob);
                 
             }
         }
@@ -79,7 +149,7 @@ public class GameController : MonoBehaviour
                 }
                 Debug.Log("Spawned Mob");
                 GameObject monster = Instantiate(mob, spawnSpots[0].transform.position, Quaternion.identity);
-
+                enemyList.Add(mob);
             }
         }
         if (waveCount == 3)
@@ -93,7 +163,7 @@ public class GameController : MonoBehaviour
                 }
                 Debug.Log("Spawned Mob");
                 GameObject monster = Instantiate(mob, spawnSpots[0].transform.position, Quaternion.identity);
-
+                enemyList.Add(mob);
             }
         }  
     }

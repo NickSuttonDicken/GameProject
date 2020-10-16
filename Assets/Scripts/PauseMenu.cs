@@ -41,11 +41,12 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
     }
 
     public void QuitGame()
     {
         Debug.Log("Quitting game..");
+        Application.Quit();
     }
 }

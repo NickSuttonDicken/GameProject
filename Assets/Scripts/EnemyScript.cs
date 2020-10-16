@@ -103,6 +103,7 @@ public class EnemyScript : MonoBehaviour
         if (healthBar.HealthDepleted() == true)
         {
             MonsterDeath();
+
         }
     }
 
