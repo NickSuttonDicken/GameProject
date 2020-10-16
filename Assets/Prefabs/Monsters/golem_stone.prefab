@@ -1570,7 +1570,20 @@ MonoBehaviour:
   maxHealth: 200
   healthBar: {fileID: 4542865491148195342}
   originalSpeed: 1.5
-  points: []
+  points:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   damage: 45
   attackRate: 4
   attackRange: 5
@@ -1726,7 +1739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a761139779447646aefb4e52ad7ab22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 40
+  maxHealth: 200
 --- !u!1001 &1458257738166209010
 PrefabInstance:
   m_ObjectHideFlags: 0
