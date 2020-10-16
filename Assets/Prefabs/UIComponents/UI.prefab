@@ -351,9 +351,9 @@ MonoBehaviour:
   - {fileID: 795189076441696513}
   - {fileID: 795189075024780521}
   - {fileID: 795189076106090082}
-  waveCount: {fileID: 0}
-  enemyCount: {fileID: 0}
-  gemCount: {fileID: 0}
+  waveCount: {fileID: 795189075235217657}
+  enemyCount: {fileID: 795189075548490858}
+  gemCount: {fileID: 795189074777539117}
 --- !u!1 &795189074924199624
 GameObject:
   m_ObjectHideFlags: 0
