@@ -90,18 +90,18 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void UpdateGem()
+    public void UpdateGem(string updateText)
     {
-
+        gemCount.text = updateText;
     }
 
-    public void UpdateEnemy()
+    public void UpdateEnemy(string updateText)
     {
-
+        enemyCount.text = updateText;
     }
 
-    public void UpdateWave()
+    public void UpdateWave(string updateText)
     {
-
+        waveCount.text = updateText;
     }
 }

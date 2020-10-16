@@ -2439,7 +2439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   healthBar: {fileID: 452060811}
-  originalSpeed: 1
+  originalSpeed: 2
   points:
   - {fileID: 0}
   - {fileID: 0}
@@ -2454,7 +2454,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  damage: 10
+  damage: 15
   attackRate: 2
   attackRange: 5
   timer: 0

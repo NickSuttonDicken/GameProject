@@ -5,9 +5,10 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public HeroScript hero;
-    public string enemyCount;
-    public string waveCount;
-    public string gemCount;
+    public UIController UI;
+    private string enemyCount;
+    private string waveCount;
+    private string gemCount;
 
     // Start is called before the first frame update
     void Start()

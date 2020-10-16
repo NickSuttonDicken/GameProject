@@ -59,8 +59,9 @@ public class EnemyHealthBar : MonoBehaviour
 
     public bool HealthDepleted()
     {
-        if (currentHealth == 0)
+        if (currentHealth == 0 || slider.value == 0)
         {
+            Debug.Log("heath is depleted");
             return true;
         }
         else return false;
