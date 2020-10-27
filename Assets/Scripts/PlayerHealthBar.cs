@@ -75,7 +75,7 @@ public class PlayerHealthBar : MonoBehaviour
 
     public bool HealthDepleted()
     {
-        if (currentHealth == 0)
+        if (currentHealth == 0 || slider.value == 0)
         {
             return true;
         }

@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class HeroScript : MonoBehaviour
 {
     private List<GameObject> enemyList = new List<GameObject>();
-
+    public DeathMenu deathMenu;
     public int maxHealth = 100;
     public PlayerHealthBar healthBar;
     public float originalSpeed;
@@ -110,6 +110,7 @@ public class HeroScript : MonoBehaviour
     {
         mesh.isStopped = true;
         anim.SetInteger("HeroState", 10);
+        deathMenu.DeathOccurs();
     }
 
     public void SetSlowSpeed(float modifier)

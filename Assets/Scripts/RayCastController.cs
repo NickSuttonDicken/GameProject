@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.EventSystems;
 
 public class RayCastController : MonoBehaviour
@@ -36,6 +37,33 @@ public class RayCastController : MonoBehaviour
                         select = 0;
                     }
                     
+                }
+                else if (!eventSystem.IsPointerOverGameObject())
+                {
+                    hero.WalkTo(ray.point);
+                }
+            }
+        }
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            //Vector3 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+
+            RaycastHit ray;
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.GetTouch(0).position), out ray, 500))
+            {
+                if (ray.collider.gameObject.tag == "Tower")
+                {
+
+                    if (UI.ButtonClicked() == true)
+                    {
+                        Debug.Log("Tower Spawned");
+                        select = UI.ButtonSelect();
+                        Debug.Log(select);
+                        ray.collider.gameObject.GetComponent<PlaceTower>().TowerPlacing(ray.collider, ray.point, select);
+                        select = 0;
+                    }
+
                 }
                 else if (!eventSystem.IsPointerOverGameObject())
                 {
